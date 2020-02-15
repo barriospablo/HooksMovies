@@ -6,23 +6,26 @@ function Movie() {
   const [query, setQuery] = useState("");
   //   const [movie, setMovie] = useState();
 
-  const url = `http://www.omdbapi.com/?s=batman&apikey=4d5a0105`; // Falta la query ${query}
+  const url = `http://www.omdbapi.com/?s=${query}&apikey=4d5a0105`; // Falta la query ${query}
   const handleInput = e => {
     let s = e.target.value;
     setQuery(s);
-    console.log(query);
   };
-
-  useEffect(() => {
+  function callAPI() {
     fetch(url)
       .then(data => data.json())
       .then(data => {
         setMovie(data.Search);
       });
+  }
+
+  useEffect(() => {
+    callAPI();
   }, []);
+
   return (
     <div>
-      <form>
+      <form onSubmit={callAPI()}>
         <label>
           <strong>Search movie</strong>
         </label>
@@ -34,19 +37,13 @@ function Movie() {
           onChange={handleInput}
         />
       </form>
-      {movie.map(film => (
-        <MovieCard film={film} key={film.imdbID} />
-      ))}
-
-      {/* {query.length < 4 ? (
-        <div>Not results yet</div>
-      ) : (
-        <div>
-          {movie.map(film => (
-            <MovieCard film={film} key={film.imdbID} />
-          ))}
-        </div>
-      )} */}
+      <div>
+        {movie == undefined ? (
+          <div>Not results yet</div>
+        ) : (
+          movie.map(film => <MovieCard film={film} key={film.imdbID} />)
+        )}
+      </div>
     </div>
   );
 }

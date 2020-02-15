@@ -12,7 +12,6 @@ function DetailsMovie(props) {
         setDetail(data);
       });
   }, []);
-  console.log(detail);
   return (
     <div>
       <DetailsCard detail={detail} />

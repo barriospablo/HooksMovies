@@ -4,6 +4,7 @@ function DetailsCard(props) {
   const { detail } = props;
   return (
     <div>
+      <img src={detail.Poster} />
       <h5>{detail.Title}</h5>
       <h5>{detail.Year}</h5>
       <h5>{detail.Rated}</h5>
