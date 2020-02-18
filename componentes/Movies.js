@@ -24,10 +24,10 @@ function Movie() {
   }, []);
 
   return (
-    <div>
-      <form onSubmit={callAPI()}>
-        <label>
-          <strong>Search movie</strong>
+    <div className="container">
+      <form className="mb-4" onSubmit={callAPI()}>
+        <label className="m-4">
+          <strong>Search a movie</strong>
         </label>
         <input
           type="text"

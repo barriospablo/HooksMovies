@@ -1,0 +1,13 @@
+img {
+  /* width: 18rem; */
+  max-width: 300px;
+  max-height: 350px;
+}
+.card {
+  max-width: 300px;
+  display: inline-block;
+}
+
+.card-text {
+  display: inline;
+}
