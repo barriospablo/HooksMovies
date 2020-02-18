@@ -26,9 +26,9 @@ function Movie() {
   return (
     <div className="container">
       <form className="mb-4" onSubmit={callAPI()}>
-        <label className="m-4">
-          <strong>Search a movie</strong>
-        </label>
+        <h1 className="text-center display-4">Search a Movie</h1>
+        {/* <strong>Search a movie</strong> */}
+
         <input
           type="text"
           id="query"
@@ -39,7 +39,7 @@ function Movie() {
       </form>
       <div>
         {movie == undefined ? (
-          <div>Not results yet</div>
+          <div className="text-center">Not results yet</div>
         ) : (
           movie.map(film => <MovieCard film={film} key={film.imdbID} />)
         )}
